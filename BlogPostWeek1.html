@@ -8,10 +8,419 @@
   <link href='https://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Monoton' rel='stylesheet' type='text/css'>
 <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css'>
-<link rel="stylesheet" href="https://raw.githubusercontent.com/Abito12/HasuraBlogPosts/master/articlepage.css">
 <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
-<script src="articlePage.js"></script>
+<style>
+	h1 {
+  line-height: 72px;
+  margin: 24px 0;
+  color:White;
+}
 
+h6{
+  line-height:24px;
+  color:#fc3565;
+}
+
+h6 span{
+  color:white;
+  float:right;
+}
+
+p {
+  line-height: 24px;
+  margin: 24px 0;
+  color:#bbbbc4;
+}
+
+
+body {
+   font-family: 'Varela Round', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  background-color: #191919;
+  font-family: "Lato";
+}
+
+.container{
+  display: block;
+  font-family: 'Varela Round', sans-serif;
+  padding-left: 4vw;
+}
+.comments-section {
+  font-family: 'Varela Round', sans-serif;
+  display: block;
+
+
+}
+.comments-section h4 {
+  margin: 0;
+  margin-top: 40px;
+  margin-bottom: 10px;
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: white;
+  border-bottom: 1px solid #666;
+  padding-bottom: 5px;
+}
+.comments-section .comments {
+  color: white;
+}
+.comments-section .comments h4 {
+  border: 0;
+}
+.comments-section .comment {
+  background: #28282B;
+  padding: 20px;
+  font-size: 15px;
+  margin-bottom: 20px;
+}
+.comments-section .comment blockquote {
+  color: #eee;
+  padding: 1em;
+  border-left: 2px solid #76daff;
+  background: rgba(0, 0, 0, 0.05);
+}
+.comments-section .comment code {
+  font-family: Menlo, Monaco, monospace;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 2px 5px;
+  margin: 0 2px;
+  border-radius: 2px;
+}
+.comments-section .comment .box {
+  background: #1d1f20;
+  padding: 20px;
+}
+.comments-section .comment .box pre {
+  overflow: auto;
+  margin: 0;
+}
+.comments-section .comment .box pre code {
+  background: transparent;
+}
+.comments-section .comment .box + .box {
+  padding-top: 0px;
+}
+.comments-section .comment a {
+  color: #76daff;
+  text-decoration: none;
+}
+.comments-section .comment .comment-user {
+  border-bottom: 1px solid #555;
+  padding: 10px 45px 20px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.comments-section .comment .comment-user .avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    text-align: center;
+    text-transform: capitalize;
+    font-size: 26px;
+    background-color: rgba(255,255,255,0.6);
+    color: black;
+    vertical-align: middle;
+}
+.comments-section .comment .comment-user .username {
+  color: #76daff;
+}
+.comments-section .comment .comment-user .user-details {
+  color: #666;
+  margin-left: 10px;
+}
+.comments-section .comment .comment-user .user-details span:last-child {
+  color: #999;
+  font-size: 80%;
+}
+.comments-section .comment .comment-text {
+  padding: 10px 45px 20px;
+}
+
+/* EDITOR STYLE */
+.CodepenCommentEditor-root {
+  background: transparent;
+  font-family: "Lato", serif;
+  font-size: 14px;
+}
+
+.CodepenCommentEditor-editor {
+  background: #fff;
+  border: 3px solid #ccc;
+  cursor: text;
+  font-size: 13px;
+  margin-top: 10px;
+  font-family: "Lato";
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+}
+
+.CodepenCommentEditor-focus {
+  border-color: #555;
+}
+
+.CodepenCommentEditor-editor .public-DraftEditorPlaceholder-root,
+.CodepenCommentEditor-editor .public-DraftEditor-content {
+  padding-left: 5px;
+  padding-top: 5px;
+}
+
+.CodepenCommentEditor-editor .public-DraftEditor-content {
+  min-height: 100px;
+}
+
+.CodepenCommentEditor-hidePlaceholder .public-DraftEditorPlaceholder-root {
+  display: none;
+}
+
+.CodepenCommentEditor-editor .CodepenCommentEditor-blockquote {
+  border-left: 2px solid #76daff;
+  background-color: rgba(0, 0, 0, 0.05);
+  color: #666;
+  font-style: italic;
+  margin: 16px 0;
+  margin-right: 5px;
+  padding: 10px 20px;
+}
+
+.CodepenCommentEditor-editor .public-DraftStyleDefault-pre {
+  margin-right: 5px;
+  background-color: rgba(0, 0, 0, 0.05);
+  font-family: 'Inconsolata', 'Menlo', 'Consolas', monospace;
+  font-size: 16px;
+  padding: 20px;
+}
+
+.CodepenCommentEditor-controls {
+  font-family: "Lato", sans-serif;
+  font-size: 12px;
+  margin-bottom: 2px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.CodepenCommentEditor-styleButton {
+  display: inline-block;
+  color: #fff;
+  cursor: pointer;
+  margin-right: 16px;
+  padding: 2px 7px;
+  border: 1px solid transparent;
+  margin: 0 5px 0 0;
+  border-radius: 3px;
+  background: #343436;
+}
+
+.CodepenCommentEditor-submitButton {
+  color: white;
+  cursor: pointer;
+  float: left;
+  margin-top: 5px;
+  padding: 10px 16px;
+  background: none;
+  border: 3px solid #ccc;
+  border-radius: 3px;
+}
+.CodepenCommentEditor-submitButton:hover {
+  background: white;
+  border-color: white;
+  color: black;
+}
+
+.CodepenCommentEditor-activeButton {
+  background: #4d4d50;
+  -webkit-transform: translateY(1px);
+          transform: translateY(1px);
+}
+
+
+input[type=text], textarea {
+  outline: none;
+  padding: 3px 0px 3px 3px;
+  margin: 5px 1px 3px 0px;
+  border: 1px solid #DDDDDD;
+}
+ 
+input[type=text]:focus, textarea:focus {
+  padding: 3px 0px 3px 3px;
+  margin: 5px 1px 3px 0px;
+  border: 2px solid rgba(81, 203, 238, 1);
+}
+
+
+
+
+
+
+
+/* Global Button Styles */
+a.animated-button:link, a.animated-button:visited {
+	position: relative;
+	display: inline-block;
+	width: 12vw;
+	margin-top:3vh;
+	padding: 14px 15px;
+	color: #fff;
+	font-size:14px;
+	font-weight: bold;
+	text-align: center;
+	text-decoration: none;
+	text-transform: uppercase;
+	overflow: hidden;
+	letter-spacing: .08em;
+	border-radius: 0;
+	text-shadow: 0 0 1px rgba(0, 0, 0, 0.2), 0 1px 0 rgba(0, 0, 0, 0.2);
+	-webkit-transition: all 1s ease;
+	-moz-transition: all 1s ease;
+	-o-transition: all 1s ease;
+	transition: all 1s ease;
+}
+a.animated-button:link:after, a.animated-button:visited:after {
+	content: "";
+	position: absolute;
+	height: 0%;
+	left: 50%;
+	top: 50%;
+	width: 7vw;
+	z-index: -1;
+	-webkit-transition: all 0.75s ease 0s;
+	-moz-transition: all 0.75s ease 0s;
+	-o-transition: all 0.75s ease 0s;
+	transition: all 0.75s ease 0s;
+}
+a.animated-button:link:hover, a.animated-button:visited:hover {
+	color: #FFF;
+	text-shadow: none;
+}
+a.animated-button:link:hover:after, a.animated-button:visited:hover:after {
+	height: 450%;
+}
+a.animated-button:link, a.animated-button:visited {
+	position: relative;
+	display: inline-block;
+	margin-top:3vh;
+	padding: 14px 15px;
+	color: #fff;
+	font-size:14px;
+	border-radius: 0;
+	font-weight: bold;
+	text-align: center;
+	text-decoration: none;
+	text-transform: uppercase;
+	overflow: hidden;
+	letter-spacing: .08em;
+	text-shadow: 0 0 1px rgba(0, 0, 0, 0.2), 0 1px 0 rgba(0, 0, 0, 0.2);
+	-webkit-transition: all 1s ease;
+	-moz-transition: all 1s ease;
+	-o-transition: all 1s ease;
+	transition: all 1s ease;
+}
+
+
+a.animated-button.thar-three {
+	color: #fff;
+	cursor: pointer;
+	display: block;
+	position: relative;
+	border: 2px solid rgba(255,255,255,0.8);
+	transition: all 0.4s cubic-bezier(0.42, 0, 0.58, 1);
+}
+a.animated-button.thar-three:hover {
+	color: #000 !important;
+	background-color: transparent;
+	text-shadow: nthree;
+}
+a.animated-button.thar-three:hover:before {
+	left: 0%;
+	right: auto;
+	width: 100%;
+}
+a.animated-button.thar-three:before {
+	display: block;
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	height: 100%;
+	width: 0px;
+	z-index: -1;
+	content: '';
+	color: #000 !important;
+	background: rgba(255,255,255,0.6);
+	transition: all 0.4s cubic-bezier(0.42, 0, 0.58, 1);
+}
+
+#home-link-button{
+    position:absolute;
+    top:76%;
+    left:76%;
+}
+
+#key{
+    visibility:hidden;
+}
+
+#homeBtn{
+    float:right;
+}
+
+.hidden{
+  font-size: 0;
+}
+
+
+
+.like-toggle{
+  outline:none;
+  box-shadow:none;
+  border: none;
+  width:40px;
+  height: 30px;
+  font-size: 1.3em;
+  border-radius: 100px;
+}
+
+
+.like-toggle.basic2{
+  border: none;
+  width: 40px;
+  height: 30px;
+  font-size: 1.3em;
+  border-radius: 100px;
+  color: #fff;
+}
+
+.like-active.basic2{
+  transition: all 0.3s linear;
+
+}
+
+.like-toggle.basic2:not(.like-active):hover{
+  width: 60px;
+  transition: all 0.3s linear;
+
+}
+
+#hidden-text{
+color:#fff;
+margin-left:1vw;
+}
+
+#likes-count{
+color:#fff;
+float:right;
+}
+
+#counterLikes{
+	font-size:20px;
+}
+</style>
 
 </head>
 
