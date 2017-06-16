@@ -1,4 +1,4 @@
-## Welcome to GitHub Pages
+## App Idea
 
 You can use the [editor on GitHub](https://github.com/Abito12/HasuraBlogPosts/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
 
